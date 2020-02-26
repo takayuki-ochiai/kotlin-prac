@@ -10,6 +10,13 @@ buildscript {
     ext.mockito_version = "2.2.0"
     ext.spek_version = "2.0.9"
     ext.gson_version = "2.8.6"
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.junit.platform:junit-platform-gradle-plugin:1.0.0-M3"
+    }
 }
 
 plugins {
@@ -38,6 +45,7 @@ dependencies {
     testRuntimeOnly "org.spekframework.spek2:spek-runner-junit5:$spek_version"
     // spek requires kotlin-reflect, can be omitted if already in the classpath
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile 'org.jetbrains.kotlin:kotlin-test'
 }
 
 // setup the test task
