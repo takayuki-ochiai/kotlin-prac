@@ -19,12 +19,12 @@ class SpekSample3 : Spek({
 
         test("characters") {
             println(System.identityHashCode(cloth))
-            assertEquals(cloth.characters, "Spek T shirt")
+            assertEquals("Spek T shirt", cloth.characters)
         }
 
         test("price") {
             println(System.identityHashCode(cloth))
-            assertEquals(cloth.price, 100)
+            assertEquals(100, cloth.price)
         }
     }
 })
