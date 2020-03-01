@@ -18,12 +18,10 @@ class SpekSample3 : Spek({
         val cloth by memoized{ Cloth("Spek T shirt", 100) }
 
         test("characters") {
-            println(System.identityHashCode(cloth))
             assertEquals("Spek T shirt", cloth.characters)
         }
 
         test("price") {
-            println(System.identityHashCode(cloth))
             assertEquals(100, cloth.price)
         }
     }
