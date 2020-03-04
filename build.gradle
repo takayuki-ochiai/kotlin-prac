@@ -47,6 +47,8 @@ dependencies {
     // stirngify and parse JSON
     implementation "com.google.code.gson:gson:$gson_version"
     implementation("com.squareup.moshi:moshi:$moshi_version")
+    // non-nullなpropertyにnullが入ってしまうことを回避するためのkotlin extension
+    implementation("com.squareup.moshi:moshi-kotlin:$moshi_version")
     // moshi 1.9.0 requires kotlin-reflect or moshi-kotlin-codegen for all Kotlin classes
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")
 
