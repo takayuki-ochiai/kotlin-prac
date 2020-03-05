@@ -3,14 +3,14 @@ package ktlin.prac
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
-import ktlin.entity.model.Ad
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 import java.math.BigDecimal
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotEquals
 import kotlin.test.assertNull
+import ktlin.entity.model.Ad
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
 
 class GsonTest : Spek({
     group("GSON") {
@@ -72,7 +72,7 @@ class GsonTest : Spek({
             context("JSONとしてparseできない文字列") {
                 it("JSONとしてparseできない文字列だった場合失敗する") {
                     val jsonInvalidStr = """{"id":1,"adgroupId":1,"title":"title","landingPageUrl":"""
-                    assertFailsWith<JsonSyntaxException> { gson.fromJson(jsonInvalidStr, Ad::class.java)}
+                    assertFailsWith<JsonSyntaxException> { gson.fromJson(jsonInvalidStr, Ad::class.java) }
                 }
             }
 
@@ -111,7 +111,6 @@ class GsonTest : Spek({
                     assertEquals(orderDetails, gson.fromJson(orderDetailsJsonStr, typeToken.type))
                 }
             }
-
         }
     }
 })

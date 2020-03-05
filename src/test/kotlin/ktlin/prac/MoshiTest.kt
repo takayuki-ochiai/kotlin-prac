@@ -4,16 +4,16 @@ import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import ktlin.adapter.moshi.ArrayListAdapter
-import ktlin.adapter.moshi.BigDecimalAdapter
-import ktlin.entity.model.Ad
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 import java.io.EOFException
 import java.lang.Exception
 import java.math.BigDecimal
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import ktlin.adapter.moshi.ArrayListAdapter
+import ktlin.adapter.moshi.BigDecimalAdapter
+import ktlin.entity.model.Ad
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
 
 class MoshiTest : Spek({
     group("Moshi") {
@@ -80,7 +80,7 @@ class MoshiTest : Spek({
             context("普通のJSON文字列") {
                 it("JSON文字列をデータクラスに変換する") {
                     val builder = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-                    val adFromJson : Ad =  builder.adapter(Ad::class.java).fromJson(adJson) ?: throw Exception("adJsonのparseに失敗")
+                    val adFromJson: Ad = builder.adapter(Ad::class.java).fromJson(adJson) ?: throw Exception("adJsonのparseに失敗")
                     assertEquals(ad, adFromJson)
                     assertEquals(ad.id, adFromJson.id)
                     assertEquals(ad.adgroupId, adFromJson.adgroupId)
@@ -95,7 +95,7 @@ class MoshiTest : Spek({
                 it("JSONとしてparseできない文字列だった場合失敗する") {
                     val jsonInvalidStr = """{"id":1,"adgroupId":1,"title":"title","landingPageUrl":"""
                     val builder = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-                    assertFailsWith<EOFException> { builder.adapter(Ad::class.java).fromJson(jsonInvalidStr)}
+                    assertFailsWith<EOFException> { builder.adapter(Ad::class.java).fromJson(jsonInvalidStr) }
                 }
             }
 
@@ -103,14 +103,14 @@ class MoshiTest : Spek({
                 it("フィールドが不足している場合、KotlinJsonAdapterFactoryを指定しているのでJsonDataExceptionが発生する") {
                     val jsonShort = """{"id":1,"adgroupId":1,"title":"title"}"""
                     val builder = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-                    assertFailsWith<JsonDataException> { builder.adapter(Ad::class.java).fromJson(jsonShort)}
+                    assertFailsWith<JsonDataException> { builder.adapter(Ad::class.java).fromJson(jsonShort) }
                 }
             }
 
             context("ネストした複雑な文字列") {
                 it("ネストした複雑な文字列もparseできる") {
                     val builder = Moshi.Builder().add(KotlinJsonAdapterFactory()).add(BigDecimalAdapter).build()
-                    val orderFromJson : Order =  builder.adapter(Order::class.java).fromJson(orderJson) ?: throw Exception("orderJsonのparseに失敗")
+                    val orderFromJson: Order = builder.adapter(Order::class.java).fromJson(orderJson) ?: throw Exception("orderJsonのparseに失敗")
                     assertEquals(order, orderFromJson)
                 }
             }
@@ -121,7 +121,7 @@ class MoshiTest : Spek({
                     val builder = Moshi.Builder().add(KotlinJsonAdapterFactory()).add(BigDecimalAdapter).add(arrayListAdapter).build()
                     val typed = Types.newParameterizedType(ArrayList::class.java, OrderDetail::class.java)
                     val adapter = builder.adapter<ArrayList<OrderDetail>>(typed)
-                    val orderDetailsFromJson : ArrayList<OrderDetail> = adapter.fromJson(orderDetailsJson) ?: throw Exception("orderDetailsJsonのparseに失敗")
+                    val orderDetailsFromJson: ArrayList<OrderDetail> = adapter.fromJson(orderDetailsJson) ?: throw Exception("orderDetailsJsonのparseに失敗")
                     assertEquals(orderDetails, orderDetailsFromJson)
                 }
             }

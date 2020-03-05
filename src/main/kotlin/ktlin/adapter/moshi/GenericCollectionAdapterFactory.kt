@@ -6,8 +6,8 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 class GenericCollectionAdapterFactory<TCollection : MutableCollection<*>> (
-        private val collectionClazz: Class<TCollection>,
-        private val createEmptyCollection: () -> MutableCollection<Any>
+    private val collectionClazz: Class<TCollection>,
+    private val createEmptyCollection: () -> MutableCollection<Any>
 ) : JsonAdapter.Factory {
 
     @Suppress("UNCHECKED_CAST")

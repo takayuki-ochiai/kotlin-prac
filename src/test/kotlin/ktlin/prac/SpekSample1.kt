@@ -1,7 +1,6 @@
 package ktlin.prac
 
 import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 
 class SpekSample1 : Spek({
     println("this is root")

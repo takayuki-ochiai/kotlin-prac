@@ -25,7 +25,7 @@ class AdDAO(id: EntityID<Long>) : LongEntity(id) {
     var imageUrl by Ads.imageUrl
     var advertisingSubject by Ads.advertisingSubject
 
-    fun toAd() : Ad = Ad(
+    fun toAd(): Ad = Ad(
         id = id.value,
         adgroupId = adgroupId,
         title = title,
@@ -34,5 +34,3 @@ class AdDAO(id: EntityID<Long>) : LongEntity(id) {
         advertisingSubject = advertisingSubject
     )
 }
-
-

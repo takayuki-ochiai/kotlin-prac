@@ -1,8 +1,8 @@
 package ktlin.prac
 
+import kotlin.test.assertEquals
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.dsl.Root
-import kotlin.test.assertEquals
 
 // セットアップ関数を登録できたりもする
 fun Root.setup() {
@@ -15,7 +15,7 @@ class SpekSample3 : Spek({
     group("Cloth") {
         // テストで使うfixtureデータの準備
         // テストブロックに入る度にオブジェクトが作られる
-        val cloth by memoized{ Cloth("Spek T shirt", 100) }
+        val cloth by memoized { Cloth("Spek T shirt", 100) }
 
         test("characters") {
             assertEquals("Spek T shirt", cloth.characters)
@@ -26,4 +26,3 @@ class SpekSample3 : Spek({
         }
     }
 })
-
