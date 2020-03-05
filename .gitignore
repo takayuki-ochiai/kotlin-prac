@@ -6,3 +6,5 @@ out
 
 # Ignore Gradle build output directory
 build
+mysql/data
+mysql/log
