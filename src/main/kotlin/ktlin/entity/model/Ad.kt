@@ -9,5 +9,7 @@ data class Ad(
     var title: String?,
     var landingPageUrl: String,
     var imageUrl: String,
-    var advertisingSubject: String
+    var advertisingSubject: String,
+
+    var adgroup: Adgroup? = null
 )

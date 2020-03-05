@@ -8,8 +8,10 @@ import org.jetbrains.exposed.dao.id.LongIdTable
 import org.jetbrains.exposed.sql.Column
 
 // Exposedではテーブル定義を object にて行う
-private object Ads : LongIdTable(name = "ads") {
-    val adgroupId: Column<Long> = long("adgroup_id")
+object Ads : LongIdTable(name = "ads") {
+    // val adgroupId: Column<Long> = long("adgroup_id")
+    // val adgroupId: Column<Long> = long("adgroup_id").references(Adgroups.id)
+    val adgroupId: Column<EntityID<Long>> = reference("adgroup_id", Adgroups)
     val title: Column<String?> = varchar("title", 255).nullable()
     val landingPageUrl: Column<String> = varchar("landing_page_url", 1024)
     val imageUrl: Column<String> = varchar("image_url", 1024)
@@ -19,6 +21,7 @@ private object Ads : LongIdTable(name = "ads") {
 class AdDAO(id: EntityID<Long>) : LongEntity(id) {
     companion object : LongEntityClass<AdDAO>(Ads)
 
+    var adgroup by AdgroupDAO referencedOn Ads.adgroupId
     var adgroupId by Ads.adgroupId
     var title by Ads.title
     var landingPageUrl by Ads.landingPageUrl
@@ -27,10 +30,11 @@ class AdDAO(id: EntityID<Long>) : LongEntity(id) {
 
     fun toAd(): Ad = Ad(
         id = id.value,
-        adgroupId = adgroupId,
+        adgroupId = adgroupId.value,
         title = title,
         landingPageUrl = landingPageUrl,
         imageUrl = imageUrl,
-        advertisingSubject = advertisingSubject
+        advertisingSubject = advertisingSubject,
+        adgroup = adgroup.toAdgroup()
     )
 }
