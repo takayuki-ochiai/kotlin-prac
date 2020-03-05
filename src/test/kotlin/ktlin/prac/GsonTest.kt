@@ -3,6 +3,7 @@ package ktlin.prac
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
+import ktlin.entity.model.Ad
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 import java.math.BigDecimal
@@ -15,11 +16,11 @@ class GsonTest : Spek({
     group("GSON") {
         val ad by memoized {
             Ad(1,
-                1,
-                "title",
-                "http://example.com",
-                "http://example.com/img.gif",
-                "advertiser")
+                    1,
+                    "title",
+                    "http://example.com",
+                    "http://example.com/img.gif",
+                    "advertiser")
         }
         val jsonStr = """{"id":1,"adgroupId":1,"title":"title","landingPageUrl":"http://example.com","imageUrl":"http://example.com/img.gif","advertisingSubject":"advertiser"}"""
 
