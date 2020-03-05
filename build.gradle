@@ -40,25 +40,25 @@ repositories {
 
 dependencies {
     // Align versions of all Kotlin components
-    implementation platform('org.jetbrains.kotlin:kotlin-bom')
+    implementation platform 'org.jetbrains.kotlin:kotlin-bom'
 
     // Use the Kotlin JDK 8 standard library.
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     // stirngify and parse JSON
     implementation "com.google.code.gson:gson:$gson_version"
-    implementation("com.squareup.moshi:moshi:$moshi_version")
+    implementation "com.squareup.moshi:moshi:$moshi_version"
     // non-nullなpropertyにnullが入ってしまうことを回避するためのkotlin extension
-    implementation("com.squareup.moshi:moshi-kotlin:$moshi_version")
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     // moshi 1.9.0 requires kotlin-reflect or moshi-kotlin-codegen for all Kotlin classes
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 
     // DAO
-    implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
+    implementation "org.jetbrains.exposed:exposed-core:$exposed_version"
+    implementation "org.jetbrains.exposed:exposed-dao:$exposed_version"
+    implementation "org.jetbrains.exposed:exposed-jdbc:$exposed_version"
     // java.time対応用
-    implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
+    implementation "org.jetbrains.exposed:exposed-java-time:$exposed_version"
 
     // Use Spek
     testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spek_version"
