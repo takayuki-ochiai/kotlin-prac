@@ -4,10 +4,10 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Ad(
-    val id: Long,
-    val adgroupId: Long,
-    val title: String?,
-    val landingPageUrl: String,
-    val imageUrl: String,
-    val advertisingSubject: String
+    var id: Long,
+    var adgroupId: Long,
+    var title: String?,
+    var landingPageUrl: String,
+    var imageUrl: String,
+    var advertisingSubject: String
 )
