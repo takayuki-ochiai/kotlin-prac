@@ -1,4 +1,4 @@
-package ktlin.adapter
+package ktlin.adapter.moshi
 
 class ArrayListAdapter {
     companion object Factory {

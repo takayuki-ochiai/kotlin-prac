@@ -1,4 +1,4 @@
-package ktlin.adapter
+package ktlin.adapter.moshi
 
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi

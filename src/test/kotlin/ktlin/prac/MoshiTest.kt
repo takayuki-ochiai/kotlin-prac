@@ -4,8 +4,8 @@ import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import ktlin.adapter.ArrayListAdapter
-import ktlin.adapter.BigDecimalAdapter
+import ktlin.adapter.moshi.ArrayListAdapter
+import ktlin.adapter.moshi.BigDecimalAdapter
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 import java.io.EOFException
