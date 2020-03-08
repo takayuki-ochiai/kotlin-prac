@@ -13,6 +13,7 @@ buildscript {
     ext.moshi_version = "1.9.2"
     ext.exposed_version = "0.21.1"
     ext.ktlint_version = "9.2.1"
+    ext.mysql_driver_version = "5.1.48"
     repositories {
         jcenter()
         mavenCentral()
@@ -62,6 +63,8 @@ dependencies {
     implementation "org.jetbrains.exposed:exposed-jdbc:$exposed_version"
     // java.time対応用
     implementation "org.jetbrains.exposed:exposed-java-time:$exposed_version"
+    // MySQL DB driver
+    implementation("mysql:mysql-connector-java:$mysql_driver_version")
 
     // Use Spek
     testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spek_version"
