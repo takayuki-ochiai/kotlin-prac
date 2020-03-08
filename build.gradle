@@ -14,6 +14,7 @@ buildscript {
     ext.exposed_version = "0.21.1"
     ext.ktlint_version = "9.2.1"
     ext.mysql_driver_version = "5.1.48"
+    ext.assertj_version = "2.2.0"
     repositories {
         jcenter()
         mavenCentral()
@@ -71,6 +72,9 @@ dependencies {
     testRuntimeOnly "org.spekframework.spek2:spek-runner-junit5:$spek_version"
     // spek requires kotlin-reflect, can be omitted if already in the classpath
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // junit assertion
+    testImplementation("org.assertj:assertj-core:$assertj_version")
     testCompile 'org.jetbrains.kotlin:kotlin-test'
 }
 
