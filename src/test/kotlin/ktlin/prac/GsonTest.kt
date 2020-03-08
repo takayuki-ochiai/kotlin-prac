@@ -15,12 +15,14 @@ import org.spekframework.spek2.style.specification.describe
 class GsonTest : Spek({
     group("GSON") {
         val ad by memoized {
-            Ad(1,
-                    1,
-                    "title",
-                    "http://example.com",
-                    "http://example.com/img.gif",
-                    "advertiser")
+            Ad(
+                1,
+                1,
+                "title",
+                "http://example.com",
+                "http://example.com/img.gif",
+                "advertiser"
+            )
         }
         val jsonStr = """{"id":1,"adgroupId":1,"title":"title","landingPageUrl":"http://example.com","imageUrl":"http://example.com/img.gif","advertisingSubject":"advertiser"}"""
 

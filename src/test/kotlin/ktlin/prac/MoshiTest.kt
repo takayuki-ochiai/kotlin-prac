@@ -18,20 +18,22 @@ import org.spekframework.spek2.style.specification.describe
 class MoshiTest : Spek({
     group("Moshi") {
         val ad by memoized {
-            Ad(1,
-                    1,
-                    "title",
-                    "http://example.com",
-                    "http://example.com/img.gif",
-                    "advertiser")
+            Ad(
+                1,
+                1,
+                "title",
+                "http://example.com",
+                "http://example.com/img.gif",
+                "advertiser"
+            )
         }
         val adJson = """{"id":1,"adgroupId":1,"title":"title","landingPageUrl":"http://example.com","imageUrl":"http://example.com/img.gif","advertisingSubject":"advertiser"}"""
 
         val customer = Customer(1, "Takayuki", "Ochiai", "1990-12-13")
 
         val orderDetails = arrayListOf(
-                OrderDetail(1, 1, 1, 1, BigDecimal(100)),
-                OrderDetail(1, 1, 2, 2, BigDecimal(400))
+            OrderDetail(1, 1, 1, 1, BigDecimal(100)),
+            OrderDetail(1, 1, 2, 2, BigDecimal(400))
         )
         val orderDetailsJson = """[{"id":1,"orderId":1,"goodsId":1,"quantity":1,"amount":"100"},{"id":1,"orderId":1,"goodsId":2,"quantity":2,"amount":"400"}]"""
 
